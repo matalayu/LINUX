@@ -1,0 +1,42 @@
+
+
+### How to use yum to download a package without installing it? ###
+-- There are two ways to download a package without installing it.
+-- One is using the "downloadonly" plugin for yum, the other is using "yumdownloader" utility.
+
+
+~~~ Before using the plugin, check /etc/yum/pluginconf.d/downloadonly.conf to confirm that this plugin is "enabled=1"
+
+
+Downloadonly plugin for yum
+----------------------------
+
+1. Install the package including "downloadonly" plugin:
+
+(RHEL5)
+  # yum install yum-downloadonly
+
+(RHEL6)
+  # yum install yum-plugin-downloadonly
+
+
+2. Run yum command with "--downloadonly" option as follows:
+
+  # yum install --downloadonly --downloaddir=<directory> <package>
+Eg:-
+yum install --downloadonly --downloaddir=/tmp chrony
+
+
+
+Confirm the RPM files are available in the specified download directory.
+=========================================================================
+
+Yumdownloader
+
+If downloading a installed package, "yumdownloader" is useful.
+
+Install the yum-utils package:
+	# yum install yum-utils
+
+Run the command followed by the desired package:
+	# yumdownloader <package>
