@@ -1,0 +1,11 @@
+How do I install my local rpm files using yum?
+==============================================
+
+Use the command yum localinstall /path/to/file.rpm. 
+This command will install the local rpm file as well as searching for required rpms (dependencies, etc) 
+on RHN or other repositories that are configured and install it for the user.
+
+
+  # yum localinstall /path/to/file.rpm
+
+  # yum localinstall ./*
